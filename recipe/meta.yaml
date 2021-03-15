@@ -1,5 +1,5 @@
 {% set name = "jupyterlab_robotmode" %}
-{% set version = "0.2.0" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 01feb6d797e9d8c056d926e62ffe871715e87d0eae030843baae1eb9c8e02834
+  sha256: 860832398e1c3240ae69f346cdaee4f69c597413001070cc94becafb36d2809c
 
 build:
   noarch: python
@@ -26,8 +26,8 @@ requirements:
 
 test:
   commands:
-    - test -f ${PREFIX}/share/jupyter/labextensions/@marketsquare/jupyterlab_robotmode/package.json                                      # [unix]
-    - if exist %PREFIX%\\share\\jupyter\\labextensions\\@marketsquare/jupyterlab_robotmode\\package.json (exit 0) else (exit 1)          # [win]
+    - test -f ${PREFIX}/share/jupyter/labextensions/@marketsquare/jupyterlab_robotmode/package.json                        # [unix]
+    - if not exist %PREFIX%\\share\\jupyter\\labextensions\\@marketsquare/jupyterlab_robotmode\\package.json (exit 1)      # [win]
 
 about:
   home: https://github.com/MarketSquare/jupyterlab_robotmode
