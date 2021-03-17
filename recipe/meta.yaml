@@ -1,5 +1,5 @@
 {% set name = "jupyterlab_robotmode" %}
-{% set version = "0.3.0" %}
+{% set version = "0.3.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 860832398e1c3240ae69f346cdaee4f69c597413001070cc94becafb36d2809c
+  sha256: f003bb88dbd6ebd218fb8bcfd77a746a19134d18dc4a682e7e8e800323395f38
 
 build:
   noarch: python
