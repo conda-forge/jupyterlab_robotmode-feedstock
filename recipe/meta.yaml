@@ -11,15 +11,16 @@ source:
 build:
   noarch: python
   number: 1
-  script: |-
-    {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script:
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
 
 requirements:
   host:
-    - python {{ python_min }}
-    - pip
-    - jupyterlab =3
+    - jupyterlab 3.*
     - jupyter-packaging
+    - setuptools
+    - pip
+    - python {{ python_min }}
   run:
     - python >={{ python_min }}
     - jupyterlab >=3,<4
