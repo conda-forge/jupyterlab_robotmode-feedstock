@@ -5,29 +5,30 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/j/jupyterlab_robotmode/jupyterlab_robotmode-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/j/jupyterlab_robotmode/jupyterlab_robotmode-{{ version }}.tar.gz
   sha256: e6f337b87c4d4015a6edab9c902f8c412339ec479a9198d09d13a91b62370a61
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: |-
     {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
-  build:
-    - python >=3.8
+  host:
+    - python {{ python_min }}
     - pip
     - jupyterlab =3
     - jupyter-packaging
   run:
-    - python >=3.8
+    - python >={{ python_min }}
     - jupyterlab >=3,<4
 
 test:
   requires:
     - pip
     - m2-grep  # [win]
+    - python {{ python_min }}
   commands:
     - pip check
     - jupyter labextension list
